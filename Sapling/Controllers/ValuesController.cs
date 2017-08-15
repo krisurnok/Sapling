@@ -35,5 +35,14 @@ namespace Sapling.Controllers
         public void Delete(int id)
         {
         }
+
+        public HttpResponseMessage login()
+        {
+
+
+            return Request.CreateResponse(HttpStatusCode.OK, "");
+
+
+        }
     }
 }
