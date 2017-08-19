@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(Sapling.Model.saplingEntities),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets2b245d8de0d7028f3e2b58c5e772bfa6c1fb70bf2c542fb412b7da3ed9249f1a))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsce70cd262c41550b639b1c16fee0bd042880304ef5c6f7ca7ce0078ac2d00ff4))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework Power Tools", "0.9.0.0")]
-    internal sealed class ViewsForBaseEntitySets2b245d8de0d7028f3e2b58c5e772bfa6c1fb70bf2c542fb412b7da3ed9249f1a : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySetsce70cd262c41550b639b1c16fee0bd042880304ef5c6f7ca7ce0078ac2d00ff4 : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "2b245d8de0d7028f3e2b58c5e772bfa6c1fb70bf2c542fb412b7da3ed9249f1a"; }
+            get { return "ce70cd262c41550b639b1c16fee0bd042880304ef5c6f7ca7ce0078ac2d00ff4"; }
         }
 
         /// <summary>

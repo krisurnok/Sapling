@@ -1136,6 +1136,16 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sapling.BL\Sapling.BL.csproj">
+      <Project>{6619fd2f-1bb0-42e7-81e0-da32870db68e}</Project>
+      <Name>Sapling.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sapling.Model\Sapling.Model.csproj">
+      <Project>{6E4E7ED0-4F4E-415F-BE59-842BE8440BAD}</Project>
+      <Name>Sapling.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
