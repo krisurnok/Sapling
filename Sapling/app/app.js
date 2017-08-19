@@ -12,7 +12,8 @@ angular
     'oc.lazyLoad',
     'ui.router',
     'ui.bootstrap',
-    'angular-loading-bar',
+      'angular-loading-bar',
+      'ngMap'
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
     
@@ -74,8 +75,8 @@ angular
             }
         }
     })
-      .state('dashboard.home',{
-        url:'/home',
+      .state('dashboard.home1',{
+        url:'/home1',
         controller: 'MainCtrl',
         templateUrl:'app/views/dashboard/home.html',
         resolve: {
@@ -92,7 +93,23 @@ angular
             })
           }
         }
-      })
+        })
+        .state('dashboard.home', {
+            url: '/home',
+            controller: 'HomeCtrl',
+            controllerAs:'vm',
+            templateUrl: 'app/CustomePages/Home/Home.html',
+            resolve: {
+                loadMyFiles: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'sbAdminApp',
+                        files: [
+                            'app/CustomePages/Home/HomeController.js',                            
+                        ]
+                    })
+                }
+            }
+        })
       .state('dashboard.form',{
           templateUrl:'app/views/form.html',
         url:'/form'
