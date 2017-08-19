@@ -1,19 +1,14 @@
-﻿    <div>
-        <div ng-show="!vm.showDetails">
-            <ng-map  center='current-postition'>
-                <marker ng-repeat="p in vm.positions" position="{{p.Position}}" on-click="vm.click(p)"></marker>
-            </ng-map>
-        </div>
-        <div ng-show="vm.showDetails">
-            <h1> My Details Area</h1>
-            <button ng-click="vm.closePopup()">Close</button>
-            <h1>Selected marker is:{{vm.Selected}}</h1>
-        </div>
+﻿<div ng-show="!vm.showDetails">
+    <div style="padding-top:1%">
+        <ng-map center='current-postition'>
+            <marker ng-repeat="p in vm.positions" position="{{p.Position}}" on-click="vm.click(p)"></marker>
+        </ng-map>
     </div>
+</div>
 
-<div>
+<div ng-show="vm.showDetails">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" style="padding-top:3%">
             <div class="well">
                 <div class="media">
                     <div class="media-left">
@@ -22,7 +17,7 @@
                         </a>
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading">Media heading</h4>
+                        <h4 class="media-heading">{{vm.}}</h4>
                         etdgyuyugyugwedyugweudyuwe
                     </div>
                 </div>
@@ -30,7 +25,7 @@
         </div>    
     </div>
     <div class="row">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide" style="margin:4%" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -74,14 +69,14 @@
                 <button type="button" class="btn btn-danger">Is Exist</button>
             </div>           
         </div>
-        <div>
+        <!--<div>
             <div class="col-lg-4">
                 <span>Please Login to update status</span>
             </div>
             <div class="col-lg-4 pull-left">
                 <button type="button" class="btn btn-success">Sign In</button>
             </div>
-        </div>
+        </div>-->
     </div>
     <div class="row">
         <!--Action section-->

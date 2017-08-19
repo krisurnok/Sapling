@@ -3334,13 +3334,13 @@ angular.module('ngMap', []);
     var defaultStyle = el.getAttribute('default-style');
     if (defaultStyle == "true") {
       el.style.display = 'block';
-      el.style.height = '300px';
+      el.style.height = '500px';
     } else {
       if (getStyle(el, 'display') != "block") {
         el.style.display = 'block';
       }
       if (getStyle(el, 'height').match(/^(0|auto)/)) {
-        el.style.height = '300px';
+        el.style.height = '500px';
       }
     }
   };
