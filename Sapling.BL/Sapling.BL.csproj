@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLDTO.cs" />
     <Compile Include="BLSapling.cs" />
     <Compile Include="BLUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
