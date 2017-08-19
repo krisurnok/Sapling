@@ -47,7 +47,22 @@ namespace Sapling.Controllers
             }
             return response;
         }
-
+        [HttpGet]
+        public HttpResponseMessage GetSaplingById(long Id)
+        {
+            HttpResponseMessage response;
+            try
+            {
+                Guid loggedUserId = User.Identity.IsAuthenticated ? Guid.Parse(User.Identity.GetUserId()) : default(Guid);
+                var result = SaplingFacade.GetSapling(Id, loggedUserId);
+                response = Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+            return response;
+        }
 
     }
 }
