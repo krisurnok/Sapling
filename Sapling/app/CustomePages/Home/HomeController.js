@@ -17,6 +17,7 @@
             Photo: [''],
             Address: '',
             Description: '',
+            MaintanceList: []
         }
         vm.latitude = "13.07412756";
         vm.longitude = "80.26611328";
