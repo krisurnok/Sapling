@@ -17,7 +17,7 @@
             GetSaplingById: function (id) {
                 return $http({
                     method: 'get',
-                    url: '/api/Home/GetSaplings?Id='+id
+                    url: '/api/Home/GetSaplingById/' + id
                 });
             },
         };
