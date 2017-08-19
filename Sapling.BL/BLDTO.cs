@@ -12,6 +12,7 @@ namespace SaplingBL.BL
         public bool IsMine { get; set; }
         public decimal[] Position { get; set; }
         public string TreeName { get; set; }
+        public bool IsAll { get; set; }
     }
 
     public class SaplingDetailViewModal
