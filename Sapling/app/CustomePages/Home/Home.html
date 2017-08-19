@@ -1,7 +1,7 @@
 ﻿       <div>
         <div ng-show="!vm.showDetails">
-            <ng-map  center="{{vm.myLocation}}">
-                <marker ng-repeat="p in vm.positions" position="{{p}}" on-click="vm.click(p)"></marker>
+            <ng-map  center='current-postition'>
+                <marker ng-repeat="p in vm.positions" position="{{p.Position}}" on-click="vm.click(p)"></marker>
             </ng-map>
         </div>
         <div ng-show="vm.showDetails">

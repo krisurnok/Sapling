@@ -20,9 +20,10 @@ namespace Sapling.BL
                 using (saplingEntities saplingEntites = new saplingEntities())
                 {
                     _saplings = saplingEntites.Sapling.Where(w =>
-                     ((w.Latitude >= (latitude + 2) || w.Latitude <= (latitude - 2))
-                     || (w.Longitude >= (longitude + 2) || w.Longitude <= (longitude - 2)))
-                     && (isAll ? true : w.CreatedBy == loggedUserId)).AsEnumerable()
+                     //((w.Latitude >= (latitude + 2) || w.Latitude <= (latitude - 2))
+                     //|| (w.Longitude >= (longitude + 2) || w.Longitude <= (longitude - 2)))
+                     //&& 
+                     (isAll ? true : w.CreatedBy == loggedUserId)).AsEnumerable()
                     .Select(s => new SaplingViewModal
                     {
                         Id = s.Id,
