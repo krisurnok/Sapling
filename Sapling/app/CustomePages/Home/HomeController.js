@@ -33,7 +33,7 @@
                 });
         });
 
-        vm.showDetails = true;
+        vm.showDetails = false;
         //vm.positions = [
         //    [12.974354, 80.242265], [12.976358, 80.247269], [12.973362, 80.243273], [12.973341, 80.243251]
 
@@ -42,19 +42,9 @@
        
         vm.click = function (event, p) {
 
-            HomeService.GetSapling(p.Id)
+            HomeService.GetSaplingById(p.Id)
                 .success(function (data) {
-
-
-                    // var _positions = [];
-                    //if (data.length > 0) {
-                    //    for (var i = 0; i < data.length; i++) {
-                    //        _positions.push(data[i].Position);
-                    //    }
-
                     vm.SaplingData = data;
-
-                    //}
                 })
                 .error(function (data, status) {
                     var errorMessage = (data && data.Message) ? data.Message : data;
