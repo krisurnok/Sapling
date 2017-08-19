@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sapling.BL
 {
-    public class SaplingListViewModal
+    public class SaplingViewModal
     {
         public long Id { get; set; }
         public bool IsMine { get; set; }
-        public int[][] Position { get; set; }
+        public Decimal[,] Position { get; set; }
+        public string TreeName { get; set; }
     }
 }
