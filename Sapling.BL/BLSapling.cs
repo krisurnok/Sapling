@@ -66,6 +66,7 @@ namespace SaplingBL.BL
                         .Select(ss=>new MaintanceViewModal() {
                             Id = ss.Id,
                             UserId=ss.UserId,
+                            UserName = ss.User.UserName.Substring(0, sapling.User.UserName.IndexOf("@")),
                             Description = ss.Description,
                             Date = ss.Date
                         })

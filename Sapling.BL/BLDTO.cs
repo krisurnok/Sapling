@@ -36,6 +36,7 @@ namespace SaplingBL.BL
         public System.DateTime Date { get; set; }
         public Nullable<int> ActionId { get; set; }
         public string Description { get; set; }
+        public string UserName { get; set; }
     }
 
     public class SaplingsSaveDetails
