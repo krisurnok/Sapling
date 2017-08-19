@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(Sapling.Model.saplingEntities),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets2dd55350fef3a59e10558b9ee41cc2bad0632adc031615d7e854bd2c2a82f91e))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets14a104efd5ba9bf71ff60fd6396afe4d86f1d584fa0958179fe2ec367ec176da))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework Power Tools", "0.9.0.0")]
-    internal sealed class ViewsForBaseEntitySets2dd55350fef3a59e10558b9ee41cc2bad0632adc031615d7e854bd2c2a82f91e : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySets14a104efd5ba9bf71ff60fd6396afe4d86f1d584fa0958179fe2ec367ec176da : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "2dd55350fef3a59e10558b9ee41cc2bad0632adc031615d7e854bd2c2a82f91e"; }
+            get { return "14a104efd5ba9bf71ff60fd6396afe4d86f1d584fa0958179fe2ec367ec176da"; }
         }
 
         /// <summary>
@@ -97,62 +97,62 @@ namespace Edm_EntityMappingGeneratedViews
                 return GetView9();
             }
 
-            if (extentName == "saplingEntities.Action")
+            if (extentName == "saplingModelStoreContainer.SaplingImage")
             {
                 return GetView10();
             }
 
-            if (extentName == "saplingEntities.Maintance")
+            if (extentName == "saplingEntities.Action")
             {
                 return GetView11();
             }
 
-            if (extentName == "saplingEntities.Role")
+            if (extentName == "saplingEntities.Maintance")
             {
                 return GetView12();
             }
 
-            if (extentName == "saplingEntities.Sapling")
+            if (extentName == "saplingEntities.Role")
             {
                 return GetView13();
             }
 
-            if (extentName == "saplingEntities.Support")
+            if (extentName == "saplingEntities.Sapling")
             {
                 return GetView14();
             }
 
-            if (extentName == "saplingEntities.Tree")
+            if (extentName == "saplingEntities.Support")
             {
                 return GetView15();
             }
 
-            if (extentName == "saplingEntities.User")
+            if (extentName == "saplingEntities.Tree")
             {
                 return GetView16();
             }
 
-            if (extentName == "saplingEntities.UserClaim")
+            if (extentName == "saplingEntities.User")
             {
                 return GetView17();
             }
 
-            if (extentName == "saplingEntities.UserLogin")
+            if (extentName == "saplingEntities.UserClaim")
             {
                 return GetView18();
             }
 
-            if (extentName == "saplingEntities.UserRole")
+            if (extentName == "saplingEntities.UserLogin")
             {
                 return GetView19();
             }
 
-            if (extentName == "saplingModelStoreContainer.sysdiagrams")
+            if (extentName == "saplingEntities.UserRole")
             {
                 return GetView20();
             }
 
-            if (extentName == "saplingEntities.sysdiagrams")
+            if (extentName == "saplingEntities.SaplingImage")
             {
                 return GetView21();
             }
@@ -385,10 +385,29 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
-        /// Gets the view for saplingEntities.Action.
+        /// Gets the view for saplingModelStoreContainer.SaplingImage.
         /// </summary>
         /// <returns>The mapping view.</returns>
         private static DbMappingView GetView10()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing SaplingImage
+        [saplingModel.Store.SaplingImage](T1.SaplingImage_Id, T1.SaplingImage_SaplingId, T1.SaplingImage_Photo)
+    FROM (
+        SELECT 
+            T.Id AS SaplingImage_Id, 
+            T.SaplingId AS SaplingImage_SaplingId, 
+            T.Photo AS SaplingImage_Photo, 
+            True AS _from0
+        FROM saplingEntities.SaplingImage AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for saplingEntities.Action.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView11()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Action
@@ -406,7 +425,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.Maintance.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView11()
+        private static DbMappingView GetView12()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Maintance
@@ -428,7 +447,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.Role.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView12()
+        private static DbMappingView GetView13()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Role
@@ -447,7 +466,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.Sapling.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView13()
+        private static DbMappingView GetView14()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Sapling
@@ -480,7 +499,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.Support.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView14()
+        private static DbMappingView GetView15()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Support
@@ -499,7 +518,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.Tree.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView15()
+        private static DbMappingView GetView16()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Tree
@@ -519,7 +538,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.User.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView16()
+        private static DbMappingView GetView17()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing User
@@ -554,7 +573,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.UserClaim.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView17()
+        private static DbMappingView GetView18()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing UserClaim
@@ -574,7 +593,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.UserLogin.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView18()
+        private static DbMappingView GetView19()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing UserLogin
@@ -593,7 +612,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for saplingEntities.UserRole.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView19()
+        private static DbMappingView GetView20()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing UserRole
@@ -609,44 +628,21 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
-        /// Gets the view for saplingModelStoreContainer.sysdiagrams.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView20()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing sysdiagrams
-        [saplingModel.Store.sysdiagrams](T1.sysdiagrams_name, T1.[sysdiagrams.principal_id], T1.[sysdiagrams.diagram_id], T1.sysdiagrams_version, T1.sysdiagrams_definition)
-    FROM (
-        SELECT 
-            T.name AS sysdiagrams_name, 
-            T.principal_id AS [sysdiagrams.principal_id], 
-            T.diagram_id AS [sysdiagrams.diagram_id], 
-            T.version AS sysdiagrams_version, 
-            T.definition AS sysdiagrams_definition, 
-            True AS _from0
-        FROM saplingEntities.sysdiagrams AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for saplingEntities.sysdiagrams.
+        /// Gets the view for saplingEntities.SaplingImage.
         /// </summary>
         /// <returns>The mapping view.</returns>
         private static DbMappingView GetView21()
         {
             return new DbMappingView(@"
-    SELECT VALUE -- Constructing sysdiagrams
-        [saplingModel.sysdiagrams](T1.sysdiagrams_name, T1.[sysdiagrams.principal_id], T1.[sysdiagrams.diagram_id], T1.sysdiagrams_version, T1.sysdiagrams_definition)
+    SELECT VALUE -- Constructing SaplingImage
+        [saplingModel.SaplingImage](T1.SaplingImage_Id, T1.SaplingImage_SaplingId, T1.SaplingImage_Photo)
     FROM (
         SELECT 
-            T.name AS sysdiagrams_name, 
-            T.principal_id AS [sysdiagrams.principal_id], 
-            T.diagram_id AS [sysdiagrams.diagram_id], 
-            T.version AS sysdiagrams_version, 
-            T.definition AS sysdiagrams_definition, 
+            T.Id AS SaplingImage_Id, 
+            T.SaplingId AS SaplingImage_SaplingId, 
+            T.Photo AS SaplingImage_Photo, 
             True AS _from0
-        FROM saplingModelStoreContainer.sysdiagrams AS T
+        FROM saplingModelStoreContainer.SaplingImage AS T
     ) AS T1");
         }
     }

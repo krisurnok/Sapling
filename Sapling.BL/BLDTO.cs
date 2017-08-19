@@ -13,4 +13,17 @@ namespace Sapling.BL
         public decimal[] Position { get; set; }
         public string TreeName { get; set; }
     }
+
+    public class SaplingDetailViewModal
+    {
+        public long Id { get; set; }
+        public bool IsMine { get; set; }
+        public decimal[] Position { get; set; }
+        public string TreeName { get; set; }
+        public string NickName { get; set; }
+        public string PlantedBy { get; set; }
+        public List<String> Photo { get; set; }
+        public string Address { get; set; }
+        
+    }
 }

@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="saplingModel.Role" Width="1.5" PointX="3.75" PointY="4.375" />
         <EntityTypeShape EntityType="saplingModel.Sapling" Width="1.5" PointX="3" PointY="7.375" />
         <EntityTypeShape EntityType="saplingModel.Support" Width="1.5" PointX="5.25" PointY="13.375" />
-        <EntityTypeShape EntityType="saplingModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="saplingModel.Tree" Width="1.5" PointX="0.75" PointY="4.25" />
         <EntityTypeShape EntityType="saplingModel.User" Width="1.5" PointX="0.75" PointY="7.25" />
         <EntityTypeShape EntityType="saplingModel.UserClaim" Width="1.5" PointX="3" PointY="20.625" />
@@ -29,6 +28,8 @@
         <AssociationConnector Association="saplingModel.FK_UserClaim_User" />
         <AssociationConnector Association="saplingModel.FK_UserLogin_User" />
         <AssociationConnector Association="saplingModel.FK_UserRole_User" />
+        <EntityTypeShape EntityType="saplingModel.SaplingImage" Width="1.5" PointX="5.25" PointY="16.375" />
+        <AssociationConnector Association="saplingModel.FK_SaplingImage_Sapling" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

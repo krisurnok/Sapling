@@ -239,6 +239,7 @@
   <ItemGroup>
     <Content Include="app\CustomePages\Home\Home.html" />
     <Content Include="app\CustomePages\Home\HomeController.js" />
+    <Content Include="app\CustomePages\PlantTree\PlantTree.html" />
     <Content Include="app\js\googleMap.js" />
     <Content Include="app\js\ng-map.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />

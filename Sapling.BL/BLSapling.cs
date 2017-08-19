@@ -42,26 +42,29 @@ namespace Sapling.BL
             }
         }
 
-        public static SaplingViewModal GetSapling(long id)
+        public static SaplingDetailViewModal GetSapling(long id)
         {
             try
             {
-                SaplingViewModal _saplings = new SaplingViewModal();
+                SaplingDetailViewModal _saplingDetail = new SaplingDetailViewModal();
                 using (saplingEntities saplingEntites = new saplingEntities())
                 {
-                    _saplings = saplingEntites.Sapling.Where(w => w.Id == id)
-                    .Select(s => new SaplingViewModal
+                    _saplingDetail = saplingEntites.Sapling.Where(w => w.Id == id).AsEnumerable()
+                    .Select(s => new SaplingDetailViewModal
                     {
                         Id = s.Id,
                         IsMine = false,
                         Position = new decimal[2] { s.Latitude, s.Longitude },
-                        TreeName = s.Tree != null ? s.Tree.Name : string.Empty
-
+                        TreeName = s.Tree != null ? s.Tree.Name : string.Empty,
+                        NickName = s.NickName,
+                        Address = s.Address,
+                        PlantedBy = s.User.UserName
+                      
                     }).FirstOrDefault()
                     ;
 
                 }
-                return _saplings;
+                return _saplingDetail;
             }
             catch (Exception ex)
             {
