@@ -9,7 +9,7 @@
 <div ng-show="vm.showDetails">
     <div class="row">
         <div class="col-lg-12" style="padding-top:3%">
-            <div class="well">
+            <div class="well" style="margin-bottom:0px">
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
@@ -19,6 +19,7 @@
                     <div class="media-body">
                         <h4 class="media-heading"><b>{{vm.SaplingData.NickName}} {{vm.SaplingData.TreeName}}</b></h4>
                         {{vm.SaplingData.Address}}
+                        <h5><b>Planted By - {{vm.SaplingData.PlantedBy}} </b></h5>
                     </div>
                 </div>
             </div>
@@ -36,11 +37,12 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <div class="item" ng-class="{'active':$index==0}" ng-repeat="pho in vm.SaplingData.Photo">
-                  
-                    <img src="{{pho}}">
-                </div>
+              
+                    <div class="item" ng-class="{' active':$index==0}" ng-repeat="pho in vm.SaplingData.Photo" >
 
+                        <img src="{{pho}}">
+                    </div>
+            
                 <!--<div class="item">
                    
                     <img src="../../../img/image2.jpg" />
@@ -70,8 +72,39 @@
             <div class="well">
                 <div class="media">                  
                     <div class="media-body">
-                        <h5><b>Planted By - {{vm.SaplingData.PlantedBy}} </b></h5>
-                        <!--{{vm.SaplingData.Description}}-->              
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="blog-comment">
+                                    <h3 class="text-success">Comments</h3><hr><ul class="comments">
+                                        <li class="clearfix">
+                                            <img src="https://bootdey.com/img/Content/user_1.jpg" class="avatar" alt=""><div class="post-comments">
+                                                <p class="meta">Dec 18, 2014 <a href="#">JohnDoe</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p><p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                    Etiam a sapien odio, sit amet
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="clearfix">
+                                            <img src="https://bootdey.com/img/Content/user_2.jpg" class="avatar" alt=""><div class="post-comments">
+                                                <p class="meta">Dec 19, 2014 <a href="#">JohnDoe</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p><p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                    Etiam a sapien odio, sit amet
+                                                </p>
+                                            </div><ul class="comments">
+                                                <li class="clearfix">
+                                                    <img src="https://bootdey.com/img/Content/user_3.jpg" class="avatar" alt=""><div class="post-comments">
+                                                        <p class="meta">Dec 20, 2014 <a href="#">JohnDoe</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p><p>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                            Etiam a sapien odio, sit amet
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>          
                     </div>
                 </div>
             </div>

@@ -7,6 +7,17 @@
             TreeName: '',
             IsAll: true
         }
+        vm.showDetails = {
+            Id: 0,
+            IsMine: false,
+            Position: [],
+            TreeName: '',
+            NickName: '',
+            PlantedBy: '',
+            Photo: [''],
+            Address: '',
+            Description: '',
+        }
         vm.latitude = "13.07412756";
         vm.longitude = "80.26611328";
 
