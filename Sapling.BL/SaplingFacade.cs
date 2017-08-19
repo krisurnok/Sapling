@@ -23,5 +23,17 @@ namespace Sapling.BL
             return BLUser.Get(id);
         }
 
+        public  static List<SaplingViewModal> GetSaplings(Guid loggedUserId, SaplingViewModal saplingViewModal)
+        {
+            try
+            {
+                return BLSapling.GetSaplings(loggedUserId, saplingViewModal.Position[0], saplingViewModal.Position[1], saplingViewModal.IsAll);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

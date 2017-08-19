@@ -105,6 +105,7 @@ angular
                         name: 'sbAdminApp',
                         files: [
                             'app/CustomePages/Home/HomeController.js',                            
+                            'app/CustomePages/Home/HomeService.js',                            
                         ]
                     })
                 }

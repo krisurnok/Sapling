@@ -1,6 +1,12 @@
 ﻿angular.module('sbAdminApp')
-    .controller('HomeCtrl', function ($interval, $scope) {
+    .controller('HomeCtrl', ['$interval', '$scope', 'HomeService', function ($interval, $scope, HomeService) {
         var vm = this;
+        vm.saplingViewModal = {
+            Id: 0,
+            Position: [],
+            TreeName: '',
+            IsAll: true
+        }
         vm.latitude = "13.07412756";
         vm.longitude = "80.26611328";
 
@@ -14,15 +20,35 @@
             $scope.$apply(function () {
                 vm.myLocation = [vm.latitude, vm.longitude];
             });
+            debugger;
             console.log(vm.myLocation);
+            //get list of saplings by current location
+            vm.saplingViewModal.Position = [vm.latitude, vm.longitude];
+            HomeService.GetSaplings(vm.saplingViewModal)
+                .success(function (data) {
+                    debugger;
+                    if (data.count > 0) {
+                        vm.positions = [data.Position];
+                    }
+                })
+                .error(function (data, status) {                    
+                    var errorMessage = (data && data.Message) ? data.Message : data;
+
+                    if (status != 404)
+                        alert(errorMessage);
+                        //appServices.alertNotify(errorMessage, "bg-red word-break");
+
+                    return false;
+                });
         });
 
         vm.showDetails = false;
-        vm.positions = [
-            [12.974354, 80.242265], [12.976358, 80.247269], [12.973362, 80.243273], [12.973341, 80.243251]
+        //vm.positions = [
+        //    [12.974354, 80.242265], [12.976358, 80.247269], [12.973362, 80.243273], [12.973341, 80.243251]
 
-        ];
-
+        //];
+        
+       
         vm.click = function (event, p) {
             debugger;
             vm.Selected = [p[0], p[1]];
@@ -34,4 +60,4 @@
             vm.showDetails = false;
             // vm.myLocation=[17.884659,76.816406]
         }
-    });
+    }]);
