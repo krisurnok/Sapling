@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="47ca03e319c0436d8f48280b450dbeb2" Name="Diagram1">
+        <EntityTypeShape EntityType="saplingModel.Action" Width="1.5" PointX="6" PointY="5.875" />
+        <EntityTypeShape EntityType="saplingModel.Maintance" Width="1.5" PointX="8.25" PointY="8.75" />
+        <EntityTypeShape EntityType="saplingModel.Role" Width="1.5" PointX="3.75" PointY="4.25" />
+        <EntityTypeShape EntityType="saplingModel.Sapling" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="saplingModel.Support" Width="1.5" PointX="5.25" PointY="12.25" />
+        <EntityTypeShape EntityType="saplingModel.Tree" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="saplingModel.User" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="saplingModel.UserClaim" Width="1.5" PointX="3" PointY="22.875" />
+        <EntityTypeShape EntityType="saplingModel.UserLogin" Width="1.5" PointX="3" PointY="20.25" />
+        <EntityTypeShape EntityType="saplingModel.UserRole" Width="1.5" PointX="6" PointY="9.125" />
+        <AssociationConnector Association="saplingModel.FK_Maintance_Action" />
+        <AssociationConnector Association="saplingModel.FK_Sapling_Action" />
+        <AssociationConnector Association="saplingModel.FK_Maintance_Sapling" />
+        <AssociationConnector Association="saplingModel.FK_Maintance_User" />
+        <AssociationConnector Association="saplingModel.FK_UserRole_Role" />
+        <AssociationConnector Association="saplingModel.FK_Sapling_Tree" />
+        <AssociationConnector Association="saplingModel.FK_Sapling_User" />
+        <AssociationConnector Association="saplingModel.FK_Sapling_User1" />
+        <AssociationConnector Association="saplingModel.FK_Sapling_User2" />
+        <AssociationConnector Association="saplingModel.FK_Support_Sapling" />
+        <AssociationConnector Association="saplingModel.FK_UserClaim_User" />
+        <AssociationConnector Association="saplingModel.FK_UserLogin_User" />
+        <AssociationConnector Association="saplingModel.FK_UserRole_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

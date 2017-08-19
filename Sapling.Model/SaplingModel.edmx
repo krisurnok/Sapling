@@ -1,0 +1,862 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="saplingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Maintance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaplingId" Type="bigint" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ActionId" Type="int" />
+          <Property Name="Description" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sapling">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsExists" Type="bit" Nullable="false" />
+          <Property Name="NextActionId" Type="int" />
+          <Property Name="NextActionText" Type="nvarchar(max)" />
+          <Property Name="ReasonForNotExists" Type="nvarchar(max)" />
+          <Property Name="TreeId" Type="int" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SaplingId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tree">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="History" Type="nvarchar" MaxLength="100" />
+          <Property Name="Maintain" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="IsVerficationEmailSent" Type="bit" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="UserActivationToken" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastLoginDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Maintance_Action">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Maintance" Type="Self.Maintance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Maintance">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintance_Sapling">
+          <End Role="Sapling" Type="Self.Sapling" Multiplicity="1" />
+          <End Role="Maintance" Type="Self.Maintance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sapling">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Maintance">
+              <PropertyRef Name="SaplingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintance_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Maintance" Type="Self.Maintance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Maintance">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_Action">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Sapling" Type="Self.Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="NextActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_Tree">
+          <End Role="Tree" Type="Self.Tree" Multiplicity="0..1" />
+          <End Role="Sapling" Type="Self.Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tree">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="TreeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Sapling" Type="Self.Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Sapling" Type="Self.Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_User2">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Sapling" Type="Self.Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Support_Sapling">
+          <End Role="Sapling" Type="Self.Sapling" Multiplicity="1" />
+          <End Role="Support" Type="Self.Support" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sapling">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Support">
+              <PropertyRef Name="SaplingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserClaim_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserClaim" Type="Self.UserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLogin_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="saplingModelStoreContainer">
+          <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Maintance" EntityType="Self.Maintance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sapling" EntityType="Self.Sapling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Support" EntityType="Self.Support" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tree" EntityType="Self.Tree" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserClaim" EntityType="Self.UserClaim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Maintance_Action" Association="Self.FK_Maintance_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Maintance" EntitySet="Maintance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintance_Sapling" Association="Self.FK_Maintance_Sapling">
+            <End Role="Sapling" EntitySet="Sapling" />
+            <End Role="Maintance" EntitySet="Maintance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintance_User" Association="Self.FK_Maintance_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Maintance" EntitySet="Maintance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_Action" Association="Self.FK_Sapling_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_Tree" Association="Self.FK_Sapling_Tree">
+            <End Role="Tree" EntitySet="Tree" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_User" Association="Self.FK_Sapling_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_User1" Association="Self.FK_Sapling_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_User2" Association="Self.FK_Sapling_User2">
+            <End Role="User" EntitySet="User" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Support_Sapling" Association="Self.FK_Support_Sapling">
+            <End Role="Sapling" EntitySet="Sapling" />
+            <End Role="Support" EntitySet="Support" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserClaim_User" Association="Self.FK_UserClaim_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserClaim" EntitySet="UserClaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLogin_User" Association="Self.FK_UserLogin_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserLogin" EntitySet="UserLogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="saplingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="saplingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Action" EntityType="saplingModel.Action" />
+          <EntitySet Name="Maintance" EntityType="saplingModel.Maintance" />
+          <EntitySet Name="Role" EntityType="saplingModel.Role" />
+          <EntitySet Name="Sapling" EntityType="saplingModel.Sapling" />
+          <EntitySet Name="Support" EntityType="saplingModel.Support" />
+          <EntitySet Name="Tree" EntityType="saplingModel.Tree" />
+          <EntitySet Name="User" EntityType="saplingModel.User" />
+          <EntitySet Name="UserClaim" EntityType="saplingModel.UserClaim" />
+          <EntitySet Name="UserLogin" EntityType="saplingModel.UserLogin" />
+          <EntitySet Name="UserRole" EntityType="saplingModel.UserRole" />
+          <AssociationSet Name="FK_Maintance_Action" Association="saplingModel.FK_Maintance_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Maintance" EntitySet="Maintance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_Action" Association="saplingModel.FK_Sapling_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintance_Sapling" Association="saplingModel.FK_Maintance_Sapling">
+            <End Role="Sapling" EntitySet="Sapling" />
+            <End Role="Maintance" EntitySet="Maintance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintance_User" Association="saplingModel.FK_Maintance_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Maintance" EntitySet="Maintance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Role" Association="saplingModel.FK_UserRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_Tree" Association="saplingModel.FK_Sapling_Tree">
+            <End Role="Tree" EntitySet="Tree" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_User" Association="saplingModel.FK_Sapling_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_User1" Association="saplingModel.FK_Sapling_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sapling_User2" Association="saplingModel.FK_Sapling_User2">
+            <End Role="User" EntitySet="User" />
+            <End Role="Sapling" EntitySet="Sapling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Support_Sapling" Association="saplingModel.FK_Support_Sapling">
+            <End Role="Sapling" EntitySet="Sapling" />
+            <End Role="Support" EntitySet="Support" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserClaim_User" Association="saplingModel.FK_UserClaim_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserClaim" EntitySet="UserClaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLogin_User" Association="saplingModel.FK_UserLogin_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserLogin" EntitySet="UserLogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_User" Association="saplingModel.FK_UserRole_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Maintance" Relationship="saplingModel.FK_Maintance_Action" FromRole="Action" ToRole="Maintance" />
+          <NavigationProperty Name="Sapling" Relationship="saplingModel.FK_Sapling_Action" FromRole="Action" ToRole="Sapling" />
+        </EntityType>
+        <EntityType Name="Maintance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaplingId" Type="Int64" Nullable="false" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActionId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Action" Relationship="saplingModel.FK_Maintance_Action" FromRole="Maintance" ToRole="Action" />
+          <NavigationProperty Name="Sapling" Relationship="saplingModel.FK_Maintance_Sapling" FromRole="Maintance" ToRole="Sapling" />
+          <NavigationProperty Name="User" Relationship="saplingModel.FK_Maintance_User" FromRole="Maintance" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserRole" Relationship="saplingModel.FK_UserRole_Role" FromRole="Role" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="Sapling">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsExists" Type="Boolean" Nullable="false" />
+          <Property Name="NextActionId" Type="Int32" />
+          <Property Name="NextActionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReasonForNotExists" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TreeId" Type="Int32" />
+          <Property Name="NickName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Action" Relationship="saplingModel.FK_Sapling_Action" FromRole="Sapling" ToRole="Action" />
+          <NavigationProperty Name="Maintance" Relationship="saplingModel.FK_Maintance_Sapling" FromRole="Sapling" ToRole="Maintance" />
+          <NavigationProperty Name="Tree" Relationship="saplingModel.FK_Sapling_Tree" FromRole="Sapling" ToRole="Tree" />
+          <NavigationProperty Name="User" Relationship="saplingModel.FK_Sapling_User" FromRole="Sapling" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="saplingModel.FK_Sapling_User1" FromRole="Sapling" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="saplingModel.FK_Sapling_User2" FromRole="Sapling" ToRole="User" />
+          <NavigationProperty Name="Support" Relationship="saplingModel.FK_Support_Sapling" FromRole="Sapling" ToRole="Support" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SaplingId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Sapling" Relationship="saplingModel.FK_Support_Sapling" FromRole="Support" ToRole="Sapling" />
+        </EntityType>
+        <EntityType Name="Tree">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="History" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Maintain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sapling" Relationship="saplingModel.FK_Sapling_Tree" FromRole="Tree" ToRole="Sapling" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="IsVerficationEmailSent" Type="Boolean" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="UserActivationToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Maintance" Relationship="saplingModel.FK_Maintance_User" FromRole="User" ToRole="Maintance" />
+          <NavigationProperty Name="Sapling" Relationship="saplingModel.FK_Sapling_User" FromRole="User" ToRole="Sapling" />
+          <NavigationProperty Name="Sapling1" Relationship="saplingModel.FK_Sapling_User1" FromRole="User" ToRole="Sapling" />
+          <NavigationProperty Name="Sapling2" Relationship="saplingModel.FK_Sapling_User2" FromRole="User" ToRole="Sapling" />
+          <NavigationProperty Name="UserClaim" Relationship="saplingModel.FK_UserClaim_User" FromRole="User" ToRole="UserClaim" />
+          <NavigationProperty Name="UserLogin" Relationship="saplingModel.FK_UserLogin_User" FromRole="User" ToRole="UserLogin" />
+          <NavigationProperty Name="UserRole" Relationship="saplingModel.FK_UserRole_User" FromRole="User" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="UserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="saplingModel.FK_UserClaim_User" FromRole="UserClaim" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="saplingModel.FK_UserLogin_User" FromRole="UserLogin" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="saplingModel.FK_UserRole_Role" FromRole="UserRole" ToRole="Role" />
+          <NavigationProperty Name="User" Relationship="saplingModel.FK_UserRole_User" FromRole="UserRole" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Maintance_Action">
+          <End Type="saplingModel.Action" Role="Action" Multiplicity="0..1" />
+          <End Type="saplingModel.Maintance" Role="Maintance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Maintance">
+              <PropertyRef Name="ActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_Action">
+          <End Type="saplingModel.Action" Role="Action" Multiplicity="0..1" />
+          <End Type="saplingModel.Sapling" Role="Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="NextActionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintance_Sapling">
+          <End Type="saplingModel.Sapling" Role="Sapling" Multiplicity="1" />
+          <End Type="saplingModel.Maintance" Role="Maintance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sapling">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Maintance">
+              <PropertyRef Name="SaplingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintance_User">
+          <End Type="saplingModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="saplingModel.Maintance" Role="Maintance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Maintance">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Role">
+          <End Type="saplingModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="saplingModel.UserRole" Role="UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_Tree">
+          <End Type="saplingModel.Tree" Role="Tree" Multiplicity="0..1" />
+          <End Type="saplingModel.Sapling" Role="Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tree">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="TreeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_User">
+          <End Type="saplingModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="saplingModel.Sapling" Role="Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_User1">
+          <End Type="saplingModel.User" Role="User" Multiplicity="1" />
+          <End Type="saplingModel.Sapling" Role="Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sapling_User2">
+          <End Type="saplingModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="saplingModel.Sapling" Role="Sapling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sapling">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Support_Sapling">
+          <End Type="saplingModel.Sapling" Role="Sapling" Multiplicity="1" />
+          <End Type="saplingModel.Support" Role="Support" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sapling">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Support">
+              <PropertyRef Name="SaplingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserClaim_User">
+          <End Type="saplingModel.User" Role="User" Multiplicity="1" />
+          <End Type="saplingModel.UserClaim" Role="UserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLogin_User">
+          <End Type="saplingModel.User" Role="User" Multiplicity="1" />
+          <End Type="saplingModel.UserLogin" Role="UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_User">
+          <End Type="saplingModel.User" Role="User" Multiplicity="1" />
+          <End Type="saplingModel.UserRole" Role="UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="saplingModelStoreContainer" CdmEntityContainer="saplingEntities">
+          <EntitySetMapping Name="Action">
+            <EntityTypeMapping TypeName="saplingModel.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maintance">
+            <EntityTypeMapping TypeName="saplingModel.Maintance">
+              <MappingFragment StoreEntitySet="Maintance">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SaplingId" ColumnName="SaplingId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="saplingModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sapling">
+            <EntityTypeMapping TypeName="saplingModel.Sapling">
+              <MappingFragment StoreEntitySet="Sapling">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="TreeId" ColumnName="TreeId" />
+                <ScalarProperty Name="ReasonForNotExists" ColumnName="ReasonForNotExists" />
+                <ScalarProperty Name="NextActionText" ColumnName="NextActionText" />
+                <ScalarProperty Name="NextActionId" ColumnName="NextActionId" />
+                <ScalarProperty Name="IsExists" ColumnName="IsExists" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Support">
+            <EntityTypeMapping TypeName="saplingModel.Support">
+              <MappingFragment StoreEntitySet="Support">
+                <ScalarProperty Name="SaplingId" ColumnName="SaplingId" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tree">
+            <EntityTypeMapping TypeName="saplingModel.Tree">
+              <MappingFragment StoreEntitySet="Tree">
+                <ScalarProperty Name="Maintain" ColumnName="Maintain" />
+                <ScalarProperty Name="History" ColumnName="History" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="saplingModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserActivationToken" ColumnName="UserActivationToken" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="IsVerficationEmailSent" ColumnName="IsVerficationEmailSent" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserClaim">
+            <EntityTypeMapping TypeName="saplingModel.UserClaim">
+              <MappingFragment StoreEntitySet="UserClaim">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogin">
+            <EntityTypeMapping TypeName="saplingModel.UserLogin">
+              <MappingFragment StoreEntitySet="UserLogin">
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="saplingModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
