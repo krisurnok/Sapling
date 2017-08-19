@@ -22,7 +22,8 @@ namespace Sapling.Model
         }
     
         public long Id { get; set; }
-        public string Location { get; set; }
+        public decimal Longitude { get; set; }
+        public decimal Latitude { get; set; }
         public Nullable<System.Guid> UserId { get; set; }
         public string Photo { get; set; }
         public bool IsExists { get; set; }

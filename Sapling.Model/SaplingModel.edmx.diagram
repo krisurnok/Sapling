@@ -5,16 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="47ca03e319c0436d8f48280b450dbeb2" Name="Diagram1">
-        <EntityTypeShape EntityType="saplingModel.Action" Width="1.5" PointX="6" PointY="5.875" />
-        <EntityTypeShape EntityType="saplingModel.Maintance" Width="1.5" PointX="8.25" PointY="8.75" />
-        <EntityTypeShape EntityType="saplingModel.Role" Width="1.5" PointX="3.75" PointY="4.25" />
+        <EntityTypeShape EntityType="saplingModel.Action" Width="1.5" PointX="3" PointY="14" />
+        <EntityTypeShape EntityType="saplingModel.Maintance" Width="1.5" PointX="5.25" PointY="8.875" />
+        <EntityTypeShape EntityType="saplingModel.Role" Width="1.5" PointX="3.75" PointY="4.375" />
         <EntityTypeShape EntityType="saplingModel.Sapling" Width="1.5" PointX="3" PointY="7.375" />
-        <EntityTypeShape EntityType="saplingModel.Support" Width="1.5" PointX="5.25" PointY="12.25" />
-        <EntityTypeShape EntityType="saplingModel.Tree" Width="1.5" PointX="0.75" PointY="4.125" />
-        <EntityTypeShape EntityType="saplingModel.User" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="saplingModel.UserClaim" Width="1.5" PointX="3" PointY="20.25" />
-        <EntityTypeShape EntityType="saplingModel.UserLogin" Width="1.5" PointX="3" PointY="23" />
-        <EntityTypeShape EntityType="saplingModel.UserRole" Width="1.5" PointX="6" PointY="9.125" />
+        <EntityTypeShape EntityType="saplingModel.Support" Width="1.5" PointX="5.25" PointY="13.375" />
+        <EntityTypeShape EntityType="saplingModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="saplingModel.Tree" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="saplingModel.User" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="saplingModel.UserClaim" Width="1.5" PointX="3" PointY="20.625" />
+        <EntityTypeShape EntityType="saplingModel.UserLogin" Width="1.5" PointX="3" PointY="23.375" />
+        <EntityTypeShape EntityType="saplingModel.UserRole" Width="1.5" PointX="6" PointY="5.25" />
         <AssociationConnector Association="saplingModel.FK_Maintance_Action" />
         <AssociationConnector Association="saplingModel.FK_Sapling_Action" />
         <AssociationConnector Association="saplingModel.FK_Maintance_Sapling" />

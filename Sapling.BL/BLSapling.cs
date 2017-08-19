@@ -9,11 +9,14 @@ namespace Sapling.BL
 {
     internal class BLSapling
     {
-        public static void GetSaplingsLocations()
+        public static void GetSaplings(Guid loggedUserId,decimal latitude, decimal longitude,bool isAll=true)
         {
             try
             {
-               
+                using (saplingEntities saplingEntites = new saplingEntities())
+                {
+                   saplingEntites.Sapling.Where(w=>w.)
+                }
             }
             catch (Exception ex)
             {

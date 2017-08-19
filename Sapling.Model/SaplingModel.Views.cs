@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(Sapling.Model.saplingEntities),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsce70cd262c41550b639b1c16fee0bd042880304ef5c6f7ca7ce0078ac2d00ff4))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets2dd55350fef3a59e10558b9ee41cc2bad0632adc031615d7e854bd2c2a82f91e))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework Power Tools", "0.9.0.0")]
-    internal sealed class ViewsForBaseEntitySetsce70cd262c41550b639b1c16fee0bd042880304ef5c6f7ca7ce0078ac2d00ff4 : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySets2dd55350fef3a59e10558b9ee41cc2bad0632adc031615d7e854bd2c2a82f91e : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "ce70cd262c41550b639b1c16fee0bd042880304ef5c6f7ca7ce0078ac2d00ff4"; }
+            get { return "2dd55350fef3a59e10558b9ee41cc2bad0632adc031615d7e854bd2c2a82f91e"; }
         }
 
         /// <summary>
@@ -147,6 +147,16 @@ namespace Edm_EntityMappingGeneratedViews
                 return GetView19();
             }
 
+            if (extentName == "saplingModelStoreContainer.sysdiagrams")
+            {
+                return GetView20();
+            }
+
+            if (extentName == "saplingEntities.sysdiagrams")
+            {
+                return GetView21();
+            }
+
             return null;
         }
 
@@ -217,11 +227,12 @@ namespace Edm_EntityMappingGeneratedViews
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Sapling
-        [saplingModel.Store.Sapling](T1.Sapling_Id, T1.Sapling_Location, T1.Sapling_UserId, T1.Sapling_Photo, T1.Sapling_IsExists, T1.Sapling_NextActionId, T1.Sapling_NextActionText, T1.Sapling_ReasonForNotExists, T1.Sapling_TreeId, T1.Sapling_NickName, T1.Sapling_Description, T1.Sapling_Address, T1.Sapling_CreatedBy, T1.Sapling_CreatedOn, T1.Sapling_ModifiedBy, T1.Sapling_ModifiedOn)
+        [saplingModel.Store.Sapling](T1.Sapling_Id, T1.Sapling_Longitude, T1.Sapling_Latitude, T1.Sapling_UserId, T1.Sapling_Photo, T1.Sapling_IsExists, T1.Sapling_NextActionId, T1.Sapling_NextActionText, T1.Sapling_ReasonForNotExists, T1.Sapling_TreeId, T1.Sapling_NickName, T1.Sapling_Description, T1.Sapling_Address, T1.Sapling_CreatedBy, T1.Sapling_CreatedOn, T1.Sapling_ModifiedBy, T1.Sapling_ModifiedOn)
     FROM (
         SELECT 
             T.Id AS Sapling_Id, 
-            T.Location AS Sapling_Location, 
+            T.Longitude AS Sapling_Longitude, 
+            T.Latitude AS Sapling_Latitude, 
             T.UserId AS Sapling_UserId, 
             T.Photo AS Sapling_Photo, 
             T.IsExists AS Sapling_IsExists, 
@@ -440,11 +451,12 @@ namespace Edm_EntityMappingGeneratedViews
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Sapling
-        [saplingModel.Sapling](T1.Sapling_Id, T1.Sapling_Location, T1.Sapling_UserId, T1.Sapling_Photo, T1.Sapling_IsExists, T1.Sapling_NextActionId, T1.Sapling_NextActionText, T1.Sapling_ReasonForNotExists, T1.Sapling_TreeId, T1.Sapling_NickName, T1.Sapling_Description, T1.Sapling_Address, T1.Sapling_CreatedBy, T1.Sapling_CreatedOn, T1.Sapling_ModifiedBy, T1.Sapling_ModifiedOn)
+        [saplingModel.Sapling](T1.Sapling_Id, T1.Sapling_Longitude, T1.Sapling_Latitude, T1.Sapling_UserId, T1.Sapling_Photo, T1.Sapling_IsExists, T1.Sapling_NextActionId, T1.Sapling_NextActionText, T1.Sapling_ReasonForNotExists, T1.Sapling_TreeId, T1.Sapling_NickName, T1.Sapling_Description, T1.Sapling_Address, T1.Sapling_CreatedBy, T1.Sapling_CreatedOn, T1.Sapling_ModifiedBy, T1.Sapling_ModifiedOn)
     FROM (
         SELECT 
             T.Id AS Sapling_Id, 
-            T.Location AS Sapling_Location, 
+            T.Longitude AS Sapling_Longitude, 
+            T.Latitude AS Sapling_Latitude, 
             T.UserId AS Sapling_UserId, 
             T.Photo AS Sapling_Photo, 
             T.IsExists AS Sapling_IsExists, 
@@ -593,6 +605,48 @@ namespace Edm_EntityMappingGeneratedViews
             T.IsActive AS UserRole_IsActive, 
             True AS _from0
         FROM saplingModelStoreContainer.UserRole AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for saplingModelStoreContainer.sysdiagrams.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView20()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing sysdiagrams
+        [saplingModel.Store.sysdiagrams](T1.sysdiagrams_name, T1.[sysdiagrams.principal_id], T1.[sysdiagrams.diagram_id], T1.sysdiagrams_version, T1.sysdiagrams_definition)
+    FROM (
+        SELECT 
+            T.name AS sysdiagrams_name, 
+            T.principal_id AS [sysdiagrams.principal_id], 
+            T.diagram_id AS [sysdiagrams.diagram_id], 
+            T.version AS sysdiagrams_version, 
+            T.definition AS sysdiagrams_definition, 
+            True AS _from0
+        FROM saplingEntities.sysdiagrams AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for saplingEntities.sysdiagrams.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView21()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing sysdiagrams
+        [saplingModel.sysdiagrams](T1.sysdiagrams_name, T1.[sysdiagrams.principal_id], T1.[sysdiagrams.diagram_id], T1.sysdiagrams_version, T1.sysdiagrams_definition)
+    FROM (
+        SELECT 
+            T.name AS sysdiagrams_name, 
+            T.principal_id AS [sysdiagrams.principal_id], 
+            T.diagram_id AS [sysdiagrams.diagram_id], 
+            T.version AS sysdiagrams_version, 
+            T.definition AS sysdiagrams_definition, 
+            True AS _from0
+        FROM saplingModelStoreContainer.sysdiagrams AS T
     ) AS T1");
         }
     }
