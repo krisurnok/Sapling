@@ -93,7 +93,7 @@ namespace SaplingBL.BL
                 Sapling sap = new Sapling();
 
                 sap.Address = data.Address;
-                sap.IsExists = data.IsExists;
+                sap.IsExists = true;
                 sap.Latitude = data.Latitude;
                 sap.Longitude = data.Longitude;
                 sap.NextActionText = data.NextActionText;
