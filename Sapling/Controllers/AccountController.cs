@@ -370,7 +370,7 @@ namespace Sapling.Controllers
         }
 
 
-        // POST api/Account/Register
+        // GET api/Account/GetUsers
         [Authorize]
         [Route("GetUsers")]
         public IHttpActionResult GetUsers()
