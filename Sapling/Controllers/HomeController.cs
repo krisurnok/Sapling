@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
-using Sapling.BL;
+using SaplingBL.BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace Sapling.Controllers
             try
             {
                 Guid loggedUserId = User.Identity.IsAuthenticated? Guid.Parse(User.Identity.GetUserId()) : default(Guid);
-                var result = SaplingFacade.GetSaplings(loggedUserId, saplingViewModal);
+                var result = new List<SaplingViewModal>(); //SaplingFacade.GetSaplings(loggedUserId, saplingViewModal., longitude, isAll);
                 response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception ex)

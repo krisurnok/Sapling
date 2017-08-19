@@ -1,4 +1,4 @@
-﻿       <div>
+﻿    <div>
         <div ng-show="!vm.showDetails">
             <ng-map  center="{{vm.myLocation}}">
                 <marker ng-repeat="p in vm.positions" position="{{p}}" on-click="vm.click(p)"></marker>
@@ -10,3 +10,64 @@
             <h1>Selected marker is:{{vm.Selected}}</h1>
         </div>
     </div>
+
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" style="width:50px;height:50px">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Media heading</h4>
+                        etdgyuyugyugwedyugweudyuwe
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="row">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="E:\image1.jepg" alt="Los Angeles">
+                </div>
+
+                <div class="item">
+                    <img src="E:\image2.jepg" alt="Chicago">
+                </div>
+
+                <div class="item">
+                    <img src="E:\image3.jepg" alt="New York">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <!--button section-->
+    </div>
+    <div class="row">
+        <!--Action section-->
+    </div>
+</div>

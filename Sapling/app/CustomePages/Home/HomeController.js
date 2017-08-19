@@ -20,13 +20,13 @@
             $scope.$apply(function () {
                 vm.myLocation = [vm.latitude, vm.longitude];
             });
-            debugger;
+          
             console.log(vm.myLocation);
             //get list of saplings by current location
             vm.saplingViewModal.Position = [vm.latitude, vm.longitude];
             HomeService.GetSaplings(vm.saplingViewModal)
                 .success(function (data) {
-                    debugger;
+                   
                     if (data.count > 0) {
                         vm.positions = [data.Position];
                     }
