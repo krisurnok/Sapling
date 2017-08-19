@@ -30,11 +30,11 @@ namespace Sapling.Model
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Sapling> Sapling { get; set; }
         public virtual DbSet<Support> Support { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tree> Tree { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserClaim> UserClaim { get; set; }
         public virtual DbSet<UserLogin> UserLogin { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
+        public virtual DbSet<SaplingImage> SaplingImage { get; set; }
     }
 }

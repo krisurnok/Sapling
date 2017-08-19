@@ -19,6 +19,7 @@ namespace Sapling.Model
         {
             this.Maintance = new HashSet<Maintance>();
             this.Support = new HashSet<Support>();
+            this.SaplingImage = new HashSet<SaplingImage>();
         }
     
         public long Id { get; set; }
@@ -48,5 +49,7 @@ namespace Sapling.Model
         public virtual User User2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Support> Support { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaplingImage> SaplingImage { get; set; }
     }
 }

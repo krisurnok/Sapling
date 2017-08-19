@@ -12,12 +12,12 @@ namespace Sapling.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class SaplingImage
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public long Id { get; set; }
+        public long SaplingId { get; set; }
+        public byte[] Photo { get; set; }
+    
+        public virtual Sapling Sapling { get; set; }
     }
 }
