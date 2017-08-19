@@ -33,9 +33,9 @@ namespace SaplingBL.BL
             return BLSapling.GetSapling(id, loggedUserId);
         }
 
-        public static List<SaplingViewModal> GetSaplings(Guid loggedUserId, SaplingViewModal saplingViewModal)
+        public static List<SaplingViewModal> GetSaplings(Guid loggedUserId, decimal latitude, decimal longitude, bool isAll = true)
         {
-            return BLSapling.GetSaplings(loggedUserId, saplingViewModal.Position[0], saplingViewModal.Position[1], saplingViewModal.IsAll);
+            return BLSapling.GetSaplings(loggedUserId, latitude, longitude, isAll);
         }
 
     }

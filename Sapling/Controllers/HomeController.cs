@@ -12,14 +12,14 @@ namespace Sapling.Controllers
 {
     public class HomeController : ApiController
     {
-        [HttpPost]
-        public HttpResponseMessage GetSaplings(SaplingViewModal saplingViewModal)
+        [HttpGet]
+        public HttpResponseMessage GetSaplings(decimal latitude, decimal longitude, bool isAll)
         {
             HttpResponseMessage response;
             try
             {
                 Guid loggedUserId = User.Identity.IsAuthenticated? Guid.Parse(User.Identity.GetUserId()) : default(Guid);
-                var result = new List<SaplingViewModal>(); //SaplingFacade.GetSaplings(loggedUserId, saplingViewModal., longitude, isAll);
+                var result = SaplingFacade.GetSaplings(loggedUserId, latitude, longitude, isAll);
                 response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception ex)

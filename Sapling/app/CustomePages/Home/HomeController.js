@@ -15,12 +15,13 @@
         navigator.geolocation.getCurrentPosition(function (location) {
             vm.latitude = location.coords.latitude;
             vm.longitude = location.coords.longitude;
-
+            debugger;
             //get list of saplings by current location
             vm.saplingViewModal.Position = [vm.latitude, vm.longitude];
+            vm.saplingViewModal.isAll = true;
             HomeService.GetSaplings(vm.saplingViewModal)
                 .success(function (data) {
-                
+                    debugger;
                    
                    // var _positions = [];
                     //if (data.length > 0) {
