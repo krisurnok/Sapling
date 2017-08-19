@@ -51,20 +51,20 @@ namespace SaplingBL.BL
                 SaplingDetailViewModal _saplingDetail = new SaplingDetailViewModal();
                 using (saplingEntities saplingEntites = new saplingEntities())
                 {
-                    _saplingDetail = saplingEntites.Sapling.Where(w => w.Id == id).AsEnumerable()
-                    .Select(s => new SaplingDetailViewModal
+                    var sd = saplingEntites.Sapling.Where(w => w.Id == id).FirstOrDefault();
+                    var sapling = saplingEntites.Sapling.FirstOrDefault(w => w.Id == id);
+                    _saplingDetail.Id = sapling.Id;
+                    _saplingDetail.IsMine = false;
+                    _saplingDetail.Position = new decimal[2] { sapling.Latitude, sapling.Longitude };
+                    _saplingDetail.TreeName = sapling.Tree != null ? sapling.Tree.Name : string.Empty;
+                    _saplingDetail.NickName = sapling.NickName;
+                    _saplingDetail.PlantedBy = sapling.User.UserName.Substring(0, sapling.User.UserName.IndexOf("@")); // remove after @  
+                    _saplingDetail.Description = sapling.Description;
+                    _saplingDetail.Photo = new List<string>();
+                    foreach (var item in sapling.SaplingImage)
                     {
-                        Id = s.Id,
-                        IsMine = false,
-                        Position = new decimal[2] { s.Latitude, s.Longitude },
-                        TreeName = s.Tree != null ? s.Tree.Name : string.Empty,
-                        NickName = s.NickName,
-                        Address = s.Address,
-                        PlantedBy = s.User.UserName
-
-                    }).FirstOrDefault();
-                    
-
+                        _saplingDetail.Photo.Add("data:image/png;base64,"+Convert.ToBase64String(item.Photo));
+                    };
                 }
                 return _saplingDetail;
             }
