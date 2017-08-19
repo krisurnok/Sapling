@@ -20,7 +20,7 @@
             vm.saplingViewModal.Position = [vm.latitude, vm.longitude];
             HomeService.GetSaplings(vm.saplingViewModal)
                 .success(function (data) {
-                    debugger;
+                
                    
                    // var _positions = [];
                     //if (data.length > 0) {
