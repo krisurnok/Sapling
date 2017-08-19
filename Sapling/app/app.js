@@ -4,7 +4,7 @@
  * @name sbAdminApp
  * @description
  * # sbAdminApp
- *Test commit to git
+ *Test commit to git - test changes 
  * Main module of the application.
  */
 angular
