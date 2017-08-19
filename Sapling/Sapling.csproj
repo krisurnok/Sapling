@@ -240,6 +240,9 @@
     <Content Include="app\CustomePages\Home\Home.html" />
     <Content Include="app\CustomePages\Home\HomeController.js" />
     <Content Include="app\CustomePages\Home\HomeService.js" />
+    <Content Include="app\CustomePages\PlantTree\PlantTree.html" />
+    <Content Include="app\CustomePages\PlantTree\PlantTreeController.js" />
+    <Content Include="app\CustomePages\PlantTree\PlantTreeService.js" />
     <Content Include="app\js\googleMap.js" />
     <Content Include="app\js\ng-map.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -250,6 +253,9 @@
     <Content Include="Global.asax" />
     <Content Include="app\404.html" />
     <Content Include="app\favicon.ico" />
+    <Content Include="img\image1.jpg" />
+    <Content Include="img\image2.jpg" />
+    <Content Include="img\image3.jpg" />
     <Content Include="index.html" />
     <Content Include="app\js\sb-admin-2.js" />
     <Content Include="app\robots.txt" />
