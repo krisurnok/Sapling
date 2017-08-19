@@ -25,7 +25,7 @@ namespace SaplingBL.BL
         public string PlantedBy { get; set; }
         public List<String> Photo { get; set; }
         public string Address { get; set; }
-        
+        public string Description { get; internal set; }
     }
 
     public class SaplingsSaveDetails

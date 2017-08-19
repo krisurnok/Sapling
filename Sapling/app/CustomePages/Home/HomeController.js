@@ -41,7 +41,7 @@
         
        
         vm.click = function (event, p) {
-
+            debugger
             HomeService.GetSaplingById(p.Id)
                 .success(function (data) {
                     vm.SaplingData = data;
