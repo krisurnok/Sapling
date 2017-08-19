@@ -64,7 +64,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sapling.Model\Sapling.Model.csproj">
+    <ProjectReference Include="..\Sapling.Model\SaplingTree.Model.csproj">
       <Project>{6e4e7ed0-4f4e-415f-be59-842be8440bad}</Project>
       <Name>Sapling.Model</Name>
     </ProjectReference>
