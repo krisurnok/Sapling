@@ -1,11 +1,11 @@
-﻿using Sapling.Model;
+﻿using SaplingTree.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sapling.BL
+namespace SaplingBL.BL
 {
     public class SaplingFacade
     {
@@ -23,16 +23,19 @@ namespace Sapling.BL
             return BLUser.Get(id);
         }
 
-        public  static List<SaplingViewModal> GetSaplings(Guid loggedUserId, SaplingViewModal saplingViewModal)
+        public static bool SaveSapling(SaplingsSaveDetails data, Guid loggedUserId)
         {
-            try
-            {
-                return BLSapling.GetSaplings(loggedUserId, saplingViewModal.Position[0], saplingViewModal.Position[1], saplingViewModal.IsAll);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return BLSapling.Save(data, loggedUserId);
+        }
+
+        public static SaplingDetailViewModal GetSapling(long id, Guid loggedUserId)
+        {
+            return BLSapling.GetSapling(id, loggedUserId);
+        }
+
+        public static List<SaplingViewModal> GetSaplings(Guid loggedUserId, decimal latitude, decimal longitude, bool isAll = true)
+        {
+            return BLSapling.GetSaplings(loggedUserId, latitude, longitude, isAll);
         }
 
     }

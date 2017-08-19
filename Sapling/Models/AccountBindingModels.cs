@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace Sapling.Models
+namespace SaplingTree.Models
 {
     // Models used as parameters to AccountController actions.
 

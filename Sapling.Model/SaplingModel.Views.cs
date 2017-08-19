@@ -10,7 +10,7 @@
 using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
-    typeof(Sapling.Model.saplingEntities),
+    typeof(SaplingTree.Model.saplingEntities),
     typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets14a104efd5ba9bf71ff60fd6396afe4d86f1d584fa0958179fe2ec367ec176da))]
 
 namespace Edm_EntityMappingGeneratedViews

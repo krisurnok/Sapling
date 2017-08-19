@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sapling.Model
+namespace SaplingTree.Model
 {
     using System;
     using System.Data.Entity;

@@ -54,9 +54,9 @@
     <Compile Include="SaplingFacade.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sapling.Model\Sapling.Model.csproj">
+    <ProjectReference Include="..\Sapling.Model\SaplingTree.Model.csproj">
       <Project>{6E4E7ED0-4F4E-415F-BE59-842BE8440BAD}</Project>
-      <Name>Sapling.Model</Name>
+      <Name>SaplingTree.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
