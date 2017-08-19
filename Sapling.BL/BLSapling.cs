@@ -13,6 +13,9 @@ namespace Sapling.BL
         {
             try
             {
+                if ((!isAll && loggedUserId == Guid.Empty) || latitude == default(decimal) || longitude == default(decimal))
+                    throw new Exception("Invalid Data");
+
                 List<SaplingViewModal> _saplings = new List<SaplingViewModal>();
                 using (saplingEntities saplingEntites = new saplingEntities())
                 {
@@ -38,5 +41,33 @@ namespace Sapling.BL
                 throw ex;
             }
         }
+
+        public static SaplingViewModal GetSapling(long id)
+        {
+            try
+            {
+                SaplingViewModal _saplings = new SaplingViewModal();
+                using (saplingEntities saplingEntites = new saplingEntities())
+                {
+                    _saplings = saplingEntites.Sapling.Where(w => w.Id == id)
+                    .Select(s => new SaplingViewModal
+                    {
+                        Id = s.Id,
+                        IsMine = false,
+                        Position = new decimal[2] { s.Latitude, s.Longitude },
+                        TreeName = s.Tree != null ? s.Tree.Name : string.Empty
+
+                    }).FirstOrDefault()
+                    ;
+
+                }
+                return _saplings;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
