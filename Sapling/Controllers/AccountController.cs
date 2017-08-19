@@ -13,11 +13,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Sapling.Models;
+using SaplingTree.Models;
 using Sapling.Providers;
 using Sapling.Results;
-using Sapling.Model;
-using Sapling.BL;
+using SaplingTree.Model;
+using SaplingBL.BL;
 
 namespace Sapling.Controllers
 {

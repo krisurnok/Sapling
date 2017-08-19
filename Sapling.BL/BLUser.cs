@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sapling.Model;
+using SaplingTree.Model;
 
-namespace Sapling.BL
+namespace SaplingBL.BL
 {
     internal class BLUser
     {

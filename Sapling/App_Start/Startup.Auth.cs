@@ -9,7 +9,7 @@ using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Sapling.Providers;
-using Sapling.Models;
+using SaplingTree.Models;
 using System.Web.Http;
 
 [assembly:OwinStartup(typeof(Sapling.Startup))]

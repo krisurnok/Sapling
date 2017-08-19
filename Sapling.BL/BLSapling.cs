@@ -1,11 +1,11 @@
-﻿using Sapling.Model;
+﻿using SaplingTree.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sapling.BL
+namespace SaplingBL.BL
 {
     internal class BLSapling
     {
@@ -42,7 +42,7 @@ namespace Sapling.BL
             }
         }
 
-        public static SaplingDetailViewModal GetSapling(long id)
+        public static SaplingDetailViewModal GetSapling(long id, Guid loggedUserId)
         {
             try
             {
@@ -59,9 +59,9 @@ namespace Sapling.BL
                         NickName = s.NickName,
                         Address = s.Address,
                         PlantedBy = s.User.UserName
-                      
-                    }).FirstOrDefault()
-                    ;
+
+                    }).FirstOrDefault();
+                    
 
                 }
                 return _saplingDetail;
@@ -70,6 +70,50 @@ namespace Sapling.BL
             {
                 throw ex;
             }
+        }
+
+        public static bool Save(SaplingsSaveDetails data, Guid loggedUserId)
+        {
+
+            bool success = false;
+            using (saplingEntities saplingEntites = new saplingEntities())
+            {
+                Sapling sap = new Sapling();
+
+                sap.Address = data.Address;
+                sap.IsExists = data.IsExists;
+                sap.Latitude = data.Latitude;
+                sap.Longitude = data.Longitude;
+                sap.NextActionText = data.NextActionText;
+                sap.TreeId = data.TreeId;
+                sap.NickName = data.NickName;
+
+                if (data.Id == 0)
+                {
+              
+                    sap.CreatedBy = loggedUserId;
+                    sap.CreatedOn = DateTime.UtcNow;
+
+                    //save
+                    saplingEntites.Sapling.Add(sap);
+                }
+                else
+                {
+                    sap.ModifiedBy = loggedUserId;
+                    sap.ModifiedOn = DateTime.UtcNow;
+                    sap.Id = data.Id;
+
+                    //Update
+                    saplingEntites.Sapling.Attach(sap);
+                    saplingEntites.Entry(sap).State = System.Data.Entity.EntityState.Modified;
+                }
+
+                saplingEntites.SaveChanges();
+                success = true;
+               
+         
+            }
+            return success;
         }
 
     }

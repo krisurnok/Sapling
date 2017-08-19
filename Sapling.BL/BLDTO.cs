@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sapling.BL
+namespace SaplingBL.BL
 {
     public class SaplingViewModal
     {
@@ -25,5 +25,22 @@ namespace Sapling.BL
         public List<String> Photo { get; set; }
         public string Address { get; set; }
         
+    }
+
+    public class SaplingsSaveDetails
+    {
+        public long Id { get; set; }
+        public decimal Latitude { get; set; }
+        public decimal Longitude { get; set; }
+        public int? TreeId { get; set; }
+        public string NickName { get; set; }
+        public string PlantedBy { get; set; }
+        public string ReasonForNotExists { get; set; }
+        public string Address { get; set; }
+
+        public string NextActionText { get; set; }
+        public string Description { get; set; }
+        public bool IsExists { get; set; }   
+
     }
 }

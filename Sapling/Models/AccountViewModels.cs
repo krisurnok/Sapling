@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Sapling.Models
+namespace SaplingTree.Models
 {
     // Models returned by AccountController actions.
 
