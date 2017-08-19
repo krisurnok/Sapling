@@ -61,6 +61,14 @@ namespace SaplingBL.BL
                     _saplingDetail.PlantedBy = sapling.User.UserName.Substring(0, sapling.User.UserName.IndexOf("@")); // remove after @  
                     _saplingDetail.Description = sapling.Description;
                     _saplingDetail.Photo = new List<string>();
+                    _saplingDetail.MaintanceList = sapling.Maintance.Where(m => m.SaplingId == sapling.Id)
+                        .Select(ss=>new MaintanceViewModal() {
+                            Id = ss.Id,
+                            UserId=ss.UserId,
+                            Description = ss.Description,
+                            Date = ss.Date
+                        })
+                        .ToList();
                     foreach (var item in sapling.SaplingImage)
                     {
                         _saplingDetail.Photo.Add("data:image/png;base64,"+Convert.ToBase64String(item.Photo));
