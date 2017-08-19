@@ -12,8 +12,8 @@
         <EntityTypeShape EntityType="saplingModel.Support" Width="1.5" PointX="5.25" PointY="12.25" />
         <EntityTypeShape EntityType="saplingModel.Tree" Width="1.5" PointX="0.75" PointY="4.125" />
         <EntityTypeShape EntityType="saplingModel.User" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="saplingModel.UserClaim" Width="1.5" PointX="3" PointY="22.875" />
-        <EntityTypeShape EntityType="saplingModel.UserLogin" Width="1.5" PointX="3" PointY="20.25" />
+        <EntityTypeShape EntityType="saplingModel.UserClaim" Width="1.5" PointX="3" PointY="20.25" />
+        <EntityTypeShape EntityType="saplingModel.UserLogin" Width="1.5" PointX="3" PointY="23" />
         <EntityTypeShape EntityType="saplingModel.UserRole" Width="1.5" PointX="6" PointY="9.125" />
         <AssociationConnector Association="saplingModel.FK_Maintance_Action" />
         <AssociationConnector Association="saplingModel.FK_Sapling_Action" />

@@ -30,7 +30,7 @@ namespace Sapling.Model
         public string UserName { get; set; }
         public string Password { get; set; }
         public Nullable<System.Guid> CreatedBy { get; set; }
-        public System.DateTime CreatedOn { get; set; }
+        public Nullable<System.DateTime> CreatedOn { get; set; }
         public Nullable<System.Guid> ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
         public string SecurityStamp { get; set; }

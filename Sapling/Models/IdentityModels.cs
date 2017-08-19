@@ -4,13 +4,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity;
+using System;
 
 namespace Sapling.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser<Guid, ApplicationLogin, ApplicationUserRole, ApplicationClaim>
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser,Guid> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
@@ -19,10 +20,22 @@ namespace Sapling.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationRole : IdentityRole<Guid, ApplicationUserRole>
+    {
+    }
+    public class ApplicationUserRole : IdentityUserRole<Guid>
+    {
+    }
+    public class ApplicationLogin : IdentityUserLogin<Guid>
+    {
+    }
+    public class ApplicationClaim : IdentityUserClaim<Guid>
+    {
+    }
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid, ApplicationLogin, ApplicationUserRole, ApplicationClaim>
     {
         public ApplicationDbContext()
-            : base("SaplingIdentity", throwIfV1Schema: false)
+            : base("SaplingIdentity")
         {
         }
         
@@ -37,10 +50,10 @@ namespace Sapling.Models
 
             //Mapping to our tables inside the database
             modelBuilder.Entity<ApplicationUser>().ToTable("User");
-            //modelBuilder.Entity<A>().ToTable("Role");
-            //modelBuilder.Entity<GSClaim>().ToTable("UserClaim");
-            //modelBuilder.Entity<GSLogin>().ToTable("UserLogin");
-            //modelBuilder.Entity<GSUserRole>().ToTable("UserRole");
+            modelBuilder.Entity<ApplicationRole>().ToTable("Role");
+            modelBuilder.Entity<ApplicationClaim>().ToTable("UserClaim");
+            modelBuilder.Entity<ApplicationLogin>().ToTable("UserLogin");
+            modelBuilder.Entity<ApplicationUserRole>().ToTable("UserRole");
 
             //Mapping ApplicationUser Table to User Defined Table
 
