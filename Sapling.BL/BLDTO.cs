@@ -26,6 +26,16 @@ namespace SaplingBL.BL
         public List<String> Photo { get; set; }
         public string Address { get; set; }
         public string Description { get; internal set; }
+        public List<MaintanceViewModal> MaintanceList { get; set; }
+    }
+    public class MaintanceViewModal
+    {
+        public long Id { get; set; }
+        public long SaplingId { get; set; }
+        public Nullable<System.Guid> UserId { get; set; }
+        public System.DateTime Date { get; set; }
+        public Nullable<int> ActionId { get; set; }
+        public string Description { get; set; }
     }
 
     public class SaplingsSaveDetails
