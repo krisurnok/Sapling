@@ -10,7 +10,7 @@ namespace Sapling.BL
     {
         public long Id { get; set; }
         public bool IsMine { get; set; }
-        public Decimal[,] Position { get; set; }
+        public decimal[] Position { get; set; }
         public string TreeName { get; set; }
     }
 }
