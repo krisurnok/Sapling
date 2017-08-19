@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
 namespace Sapling.Models
 {
@@ -21,13 +22,31 @@ namespace Sapling.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SaplingIdentity", throwIfV1Schema: false)
         {
         }
         
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //Mapping to our tables inside the database
+            modelBuilder.Entity<ApplicationUser>().ToTable("User");
+            //modelBuilder.Entity<A>().ToTable("Role");
+            //modelBuilder.Entity<GSClaim>().ToTable("UserClaim");
+            //modelBuilder.Entity<GSLogin>().ToTable("UserLogin");
+            //modelBuilder.Entity<GSUserRole>().ToTable("UserRole");
+
+            //Mapping ApplicationUser Table to User Defined Table
+
+            modelBuilder.Entity<ApplicationUser>().Property(r => r.PasswordHash).HasColumnName("Password");
+            modelBuilder.Entity<ApplicationUser>().Property(r => r.PhoneNumber).HasColumnName("Mobile");
+
         }
     }
 }
