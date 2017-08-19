@@ -45,6 +45,7 @@
             HomeService.GetSaplingById(p.Id)
                 .success(function (data) {
                     vm.SaplingData = data;
+                    vm.showDetails = true;
                 })
                 .error(function (data, status) {
                     var errorMessage = (data && data.Message) ? data.Message : data;
@@ -59,7 +60,7 @@
 
             // map.setZoom(8);
             // map.setCenter(marker.getPosition());
-            vm.showDetails = true;
+           
         }
         vm.closePopup = function () {
             vm.showDetails = false;

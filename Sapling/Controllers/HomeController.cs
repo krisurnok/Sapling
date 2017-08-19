@@ -13,6 +13,7 @@ namespace Sapling.Controllers
     public class HomeController : ApiController
     {
         [HttpGet]
+        
         public HttpResponseMessage GetSaplings(decimal latitude, decimal longitude, bool isAll)
         {
             HttpResponseMessage response;
@@ -48,6 +49,7 @@ namespace Sapling.Controllers
             return response;
         }
         [HttpGet]
+        [Route("api/Home/GetSaplingById/{id}")]
         public HttpResponseMessage GetSaplingById(long Id)
         {
             HttpResponseMessage response;

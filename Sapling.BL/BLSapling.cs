@@ -60,6 +60,7 @@ namespace SaplingBL.BL
                     _saplingDetail.NickName = sapling.NickName;
                     _saplingDetail.PlantedBy = sapling.User.UserName.Substring(0, sapling.User.UserName.IndexOf("@")); // remove after @  
                     _saplingDetail.Description = sapling.Description;
+                    _saplingDetail.Address = sapling.Address;
                     _saplingDetail.Photo = new List<string>();
                     _saplingDetail.MaintanceList = sapling.Maintance.Where(m => m.SaplingId == sapling.Id)
                         .Select(ss=>new MaintanceViewModal() {
