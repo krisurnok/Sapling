@@ -42,8 +42,7 @@ namespace SaplingBL.BL
             {
                 throw ex;
             }
-        }
-
+        }        
         public static SaplingDetailViewModal GetSapling(long id, Guid loggedUserId)
         {
             try
@@ -84,10 +83,10 @@ namespace SaplingBL.BL
             }
         }
 
-        public static bool Save(SaplingsSaveDetails data, Guid loggedUserId)
+        public static long Save(SaplingsSaveDetails data, Guid loggedUserId)
         {
 
-            bool success = false;
+            long success = 0;
             using (saplingEntities saplingEntites = new saplingEntities())
             {
                 Sapling sap = new Sapling();
@@ -122,11 +121,29 @@ namespace SaplingBL.BL
                 }
 
                 saplingEntites.SaveChanges();
-                success = true;
+                success = sap.Id;
                
          
             }
             return success;
+        }
+        public static bool SaveSaplingImages(long saplingId, byte[] image)
+        {
+            try
+            {
+                using (saplingEntities saplingEntites = new saplingEntities())
+                {
+                    var saplingImage = new SaplingImage();
+                    saplingImage.SaplingId = saplingId;
+                    saplingImage.Photo = image;
+                    saplingEntites.SaplingImage.Add(saplingImage);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

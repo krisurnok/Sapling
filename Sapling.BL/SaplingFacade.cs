@@ -23,8 +23,24 @@ namespace SaplingBL.BL
             return BLUser.Get(id);
         }
 
-        public static bool SaveSapling(SaplingsSaveDetails data, Guid loggedUserId)
+        public static long SaveSapling(SaplingsSaveDetails data, Guid loggedUserId)
         {
+            return BLSapling.Save(data, loggedUserId);
+        }
+
+        public static long UploadImage(Guid loggedUserId,byte[] image)
+        {
+            SaplingsSaveDetails data = new SaplingsSaveDetails();
+            data.Address = string.Empty;
+            data.IsExists = true;
+            data.Latitude = default(decimal);
+            data.Longitude = default(decimal);
+            data.NextActionText = string.Empty;
+            data.TreeId = 1;
+            data.NickName = string.Empty;            
+
+            var saplingId = BLSapling.Save(data, loggedUserId);
+            BLSapling.SaveSaplingImages(saplingId, image);
             return BLSapling.Save(data, loggedUserId);
         }
 
