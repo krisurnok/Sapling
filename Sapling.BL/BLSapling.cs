@@ -99,6 +99,7 @@ namespace SaplingBL.BL
                 sap.NextActionText = data.NextActionText;
                 sap.TreeId = data.TreeId;
                 sap.NickName = data.NickName;
+                sap.UserId = loggedUserId;
 
                 if (data.Id == 0)
                 {

@@ -111,6 +111,23 @@ angular
                 }
             }
         })
+         .state('dashboard.planttree', {
+             url: '/planttree',
+             controller: 'PlantTreeCtrl',
+             controllerAs: 'vm',
+             templateUrl: 'app/CustomePages/PlantTree/PlantTree.html',
+             resolve: {
+                 loadMyFiles: function ($ocLazyLoad) {
+                     return $ocLazyLoad.load({
+                         name: 'sbAdminApp',
+                         files: [
+                             'app/CustomePages/PlantTree/PlantTreeController.js',
+                             'app/CustomePages/PlantTree/PlantTreeService.js',
+                         ]
+                     })
+                 }
+             }
+         })
       .state('dashboard.form',{
           templateUrl:'app/views/form.html',
         url:'/form'
