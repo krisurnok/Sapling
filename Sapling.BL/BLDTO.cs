@@ -52,7 +52,9 @@ namespace SaplingBL.BL
 
         public string NextActionText { get; set; }
         public string Description { get; set; }
-        public bool IsExists { get; set; }   
+        public bool IsExists { get; set; }
+
+        public dynamic[] files {get;set;}
 
     }
 }

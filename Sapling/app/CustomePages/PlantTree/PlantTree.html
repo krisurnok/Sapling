@@ -25,6 +25,46 @@
                     <textarea id="Description" class="form-control" ng-model="vm.saplingSaveModal.Description"></textarea>
                 </div>
                 <div class="form-group">
+                    <div class="row pad-t-10" nv-file-drop=""  uploader="vm.photoUploader">
+                        <div class="col-md-3 col-sm-3 col-xs-12">Upload Image</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="file-drop-zone pad-10">
+                                <div nv-file-over="" uploader="vm.photoUploader" over-class="file-drop-zone-over" >
+                                    <label ng-disabled="readOnly" class="myLabel btn blue-soft">
+                                        <input   type="file" name="files" nv-file-select uploader="vm.photoUploader"  />
+                                      
+                                    </label>
+                                   
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <div class="word-break">
+                                <div >
+                                    <div class="no-pad col-md-8 col-sm-6">
+                                        <span class="pointer-not-allowed">{{vm.photoUploader.queue[0].file.name}}</span>
+                                    </div>
+                                    <div class="no-pad col-md-4 col-sm-6">
+                                        <button type="button" class="btn btn-danger btn-xs" ng-show="vm.photoUploader.queue.length>0" >
+                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div>
+                                  
+                                    <div class="no-pad  col-md-4 col-sm-6">
+                                        <button type="button" class="btn btn-danger btn-xs">
+                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="aab controls col-md-4 "></div>
                     <div class="controls col-md-8 ">
                         <input type="submit" name="Signup" ng-click="vm.saveSapling(vm.saplingSaveModal)" value="Save" class="btn btn-primary btn btn-info" id="submit-id-signup">
