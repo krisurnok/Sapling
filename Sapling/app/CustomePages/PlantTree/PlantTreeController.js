@@ -28,20 +28,9 @@
         vm.saveSapling = function (data) {
             data.latitude = vm.latitude;
             data.longitude = vm.longitude;
+            vm.saplingSaveModal = data;
             vm.photoUploader.uploadAll()
-            PlantTreeService.SaveSapling(data)
-               .success(function (data) {
-                   $state.go('dashboard.home');
-               })
-               .error(function (data, status) {
-                   var errorMessage = (data && data.Message) ? data.Message : data;
-
-                   if (status != 404)
-                       alert(errorMessage);
-                   //appServices.alertNotify(errorMessage, "bg-red word-break");
-
-                   return false;
-               });
+           
         }
       
         vm.upload = function () {
@@ -103,10 +92,28 @@
             console.info('onCancelItem', fileItem, response, status, headers);
         };
         vm.photoUploader.onCompleteItem = function (fileItem, response, status, headers) {
+    
+            vm.saplingSaveModal.Id = response;
+            PlantTreeService.SaveSapling(vm.saplingSaveModal)
+               .success(function (data) {
+                 
+                   $state.go('dashboard.home');
+               })
+               .error(function (data, status) {
+                   var errorMessage = (data && data.Message) ? data.Message : data;
+
+                   if (status != 404)
+                       alert(errorMessage);
+                   //appServices.alertNotify(errorMessage, "bg-red word-break");
+
+                   return false;
+               });
+            vm.photoUploader.queue = [];
             console.info('onCompleteItem', fileItem, response, status, headers);
         };
-        vm.photoUploader.onCompleteAll = function () {
-            console.info('onCompleteAll');
+        vm.photoUploader.onCompleteAll = function (fileItem, response, status, headers) {
+            vm.photoUploader.queue = [];
+           
         };
       
     }]);

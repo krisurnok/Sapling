@@ -89,20 +89,19 @@ namespace SaplingBL.BL
             long success = 0;
             using (saplingEntities saplingEntites = new saplingEntities())
             {
-                Sapling sap = new Sapling();
+               Sapling sap = new Sapling();
 
-                sap.Address = data.Address;
-                sap.IsExists = true;
-                sap.Latitude = data.Latitude;
-                sap.Longitude = data.Longitude;
-                sap.NextActionText = data.NextActionText;
-                sap.TreeId = data.TreeId;
-                sap.NickName = data.NickName;
-                sap.UserId = loggedUserId;
-
+                
                 if (data.Id == 0)
                 {
-              
+                    sap.Address = data.Address;
+                    sap.IsExists = true;
+                    sap.Latitude = data.Latitude;
+                    sap.Longitude = data.Longitude;
+                    sap.NextActionText = data.NextActionText;
+                    sap.TreeId = data.TreeId;
+                    sap.NickName = data.NickName;
+                    sap.UserId = loggedUserId;
                     sap.CreatedBy = loggedUserId;
                     sap.CreatedOn = DateTime.UtcNow;
 
@@ -111,13 +110,17 @@ namespace SaplingBL.BL
                 }
                 else
                 {
-                    sap.ModifiedBy = loggedUserId;
-                    sap.ModifiedOn = DateTime.UtcNow;
-                    sap.Id = data.Id;
-
-                    //Update
-                    saplingEntites.Sapling.Attach(sap);
-                    saplingEntites.Entry(sap).State = System.Data.Entity.EntityState.Modified;
+                    var exdata = saplingEntites.Sapling.FirstOrDefault(s => s.Id == data.Id);
+                    exdata.Address = data.Address;
+                    exdata.IsExists = true;
+                    exdata.Latitude = data.Latitude;
+                    exdata.Longitude = data.Longitude;
+                    exdata.NextActionText = data.NextActionText;
+                    exdata.TreeId = data.TreeId;
+                    exdata.NickName = data.NickName;
+                    exdata.UserId = loggedUserId;
+                    exdata.ModifiedBy = loggedUserId;
+                    exdata.ModifiedOn = DateTime.UtcNow;                                       
                 }
 
                 saplingEntites.SaveChanges();
@@ -137,6 +140,7 @@ namespace SaplingBL.BL
                     saplingImage.SaplingId = saplingId;
                     saplingImage.Photo = image;
                     saplingEntites.SaplingImage.Add(saplingImage);
+                    saplingEntites.SaveChanges();
                 }
                 return true;
             }

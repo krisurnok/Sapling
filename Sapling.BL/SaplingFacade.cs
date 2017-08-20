@@ -41,7 +41,7 @@ namespace SaplingBL.BL
 
             var saplingId = BLSapling.Save(data, loggedUserId);
             BLSapling.SaveSaplingImages(saplingId, image);
-            return BLSapling.Save(data, loggedUserId);
+            return saplingId;
         }
 
         public static SaplingDetailViewModal GetSapling(long id, Guid loggedUserId)
