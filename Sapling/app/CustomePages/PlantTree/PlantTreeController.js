@@ -28,7 +28,7 @@
         vm.saveSapling = function (data) {
             data.latitude = vm.latitude;
             data.longitude = vm.longitude;
-         
+            vm.photoUploader.uploadAll()
             PlantTreeService.SaveSapling(data)
                .success(function (data) {
                    $state.go('dashboard.home');
@@ -68,14 +68,46 @@
            
         });
 
-        vm.photoUploader = new FileUploader({
+        vm.photoUploader = $scope.photoUploader = new FileUploader({
             url: '/api/Upload/Upload/',
             ////headers: { 'Authorization': 'Bearer ' + authData.token, 'TokenExpiresOn': authData.TokenExpiresOn, 'Accept': 'application/json' },
             queueLimit: 1,
             removeAfterUpload: true
         });
 
-
+        vm.photoUploader.onWhenAddingFileFailed = function (item /*{File|FileLikeObject}*/, filter, options) {
+            console.info('onWhenAddingFileFailed', item, filter, options);
+        };
+        vm.photoUploader.onAfterAddingFile = function (fileItem) {
+            console.info('onAfterAddingFile', fileItem);
+        };
+        vm.photoUploader.onAfterAddingAll = function (addedFileItems) {
+            console.info('onAfterAddingAll', addedFileItems);
+        };
+        vm.photoUploader.onBeforeUploadItem = function (item) {
+            console.info('onBeforeUploadItem', item);
+        };
+        vm.photoUploader.onProgressItem = function (fileItem, progress) {
+            console.info('onProgressItem', fileItem, progress);
+        };
+        vm.photoUploader.onProgressAll = function (progress) {
+            console.info('onProgressAll', progress);
+        };
+        vm.photoUploader.onSuccessItem = function (fileItem, response, status, headers) {
+            console.info('onSuccessItem', fileItem, response, status, headers);
+        };
+        vm.photoUploader.onErrorItem = function (fileItem, response, status, headers) {
+            console.info('onErrorItem', fileItem, response, status, headers);
+        };
+        vm.photoUploader.onCancelItem = function (fileItem, response, status, headers) {
+            console.info('onCancelItem', fileItem, response, status, headers);
+        };
+        vm.photoUploader.onCompleteItem = function (fileItem, response, status, headers) {
+            console.info('onCompleteItem', fileItem, response, status, headers);
+        };
+        vm.photoUploader.onCompleteAll = function () {
+            console.info('onCompleteAll');
+        };
       
     }]);
 angular.module('sbAdminApp').directive('ngFileModel', ['$parse', function ($parse) {
